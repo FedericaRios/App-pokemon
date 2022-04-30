@@ -1,6 +1,11 @@
-* {
+body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Arial, sans-serif
+  height: 100vh;
+  font-family: Arial, sans-serif;
+  background-image: url(./assets/welcome-pokemon.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 25% 50%;
 }
