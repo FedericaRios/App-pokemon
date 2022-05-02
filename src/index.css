@@ -9,3 +9,9 @@ body {
   background-size: cover;
   background-position: 25% 50%;
 }
+
+@media (max-width: 530px) {
+  body {
+    height: 130vh;
+  }
+}

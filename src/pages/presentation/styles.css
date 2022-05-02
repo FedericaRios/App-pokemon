@@ -9,7 +9,6 @@
 
 .parrafo-container {
     font-size: 60px;
-    margin-top: 0%;
 }
 
 .logo-pokemon {
@@ -37,4 +36,26 @@
     background-color: rgba(0, 0, 255, 0.842);
     box-shadow: 5px 2px 20px 2px blue;
     cursor: pointer;
+}
+
+@media (max-width: 530px) {
+    .parrafo-container {
+        font-size: 50px;
+        margin-top: 0%;
+    }
+
+    .logo-pokemon {
+        width: 50%;
+        height: 10%;
+        margin-top: 2%;
+    }
+
+    .presentation-button-container {
+        width: 30%;
+        height: 10%;
+    }
+
+    .presentation-button {
+        width: 100%;
+    }
 }

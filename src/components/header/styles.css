@@ -34,3 +34,13 @@
     background-color: rgba(0, 0, 255, 0.842);
     box-shadow: 5px 2px 20px 2px blue;
 }
+
+@media (max-width: 530px) {
+    .header-input {
+        text-align: center;
+        width: 60%;
+        height: 35%;
+        border-radius: 5px;
+        border: 1px solid black;
+    }
+}
