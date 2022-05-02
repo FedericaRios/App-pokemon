@@ -1,4 +1,5 @@
 import React from 'react';
+import { FiX } from "react-icons/fi";
 import style from './styles.css';
 
 const PopUp = ({
@@ -25,7 +26,7 @@ const PopUp = ({
                 </div>
                 <div className="abilities-description-button-container">
                     <div className="button-popUp-close-container">
-                        <button className="button-popUp-close" onClick={() => setPopUp(false)}>x</button>
+                        <button className="button-popUp-close" onClick={() => setPopUp(false)}><FiX /></button>
                     </div>
                     <div className="abilities-pokemon">
                         <h3>Abilities</h3>

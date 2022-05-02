@@ -23,7 +23,6 @@ const Header = ({
         res_api = await res_api.json();
         setPokemonFinded(res_api)
         setShowListPokemons(false)
-        console.log(res_api, 'hi')
     }
 
 

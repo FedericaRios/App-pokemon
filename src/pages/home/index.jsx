@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
-import styles from './styles.css';
 import Header from '../../components/header';
 import Body from '../../components/body';
 import Footer from '../../components/footer';
-
+import styles from './styles.css';
 
 const Home = () => {
     const [offset, setOffset] = useState(0);

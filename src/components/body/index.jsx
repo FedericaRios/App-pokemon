@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import CardItem from '../cardItem'
 import PopUp from '../../components/popUp';
+import { FiArrowLeft } from "react-icons/fi";
 import style from './styles.css';
+
 
 const Body = ({
     offset,
@@ -18,7 +20,6 @@ const Body = ({
         try {
             let res_api = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=10&offset=${offset}`);
             res_api = await res_api.json();
-            console.log(res_api)
             getAllInfoPokemons(res_api.results)
 
         } catch (error) {
@@ -37,7 +38,6 @@ const Body = ({
         const arrayPromise = arrayPokemon.map((item) => getFetch(item.url));
         let arrayInfoPokemon = await Promise.all(arrayPromise);
         setPokemons(arrayInfoPokemon);
-        console.log(arrayInfoPokemon)
     }
 
     useEffect(() => {
@@ -49,7 +49,7 @@ const Body = ({
         <div className="body-container">
             {
                 !showListPokemons && <div className="button-container">
-                    <button onClick={() => setShowListPokemons(true)} >{'< Back to pokemon list'}</button>
+                    <button onClick={() => setShowListPokemons(true)}><FiArrowLeft /> Back</button>
                 </div>
             }
             <div className={showListPokemons ? "cardItem-container" : "oneCardItem-container"}>

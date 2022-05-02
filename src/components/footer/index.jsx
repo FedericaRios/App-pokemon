@@ -1,6 +1,6 @@
 import React from 'react';
-import style from './styles.css';
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
+import style from './styles.css';
 
 const Footer = ({
     setOffset,
