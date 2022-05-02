@@ -11,7 +11,7 @@
 
 React, Css, Js, y Html.
 
-## Link del deploy:
+
 
 
 
