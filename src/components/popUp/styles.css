@@ -1,0 +1,102 @@
+.popUp-container {
+    background-color: rgba(0, 0, 0, 0.61);
+    position: fixed;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cardItem-popUp-container {
+    width: 35%;
+    height: 65%;
+    background-color: white;
+    border-radius: 5px;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: row;
+}
+
+.name-image-pokemon-container {
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    /* background-color: blueviolet; */
+}
+
+.name-pokemon {
+    text-decoration: 2px underline;
+    padding-bottom: 5%;
+}
+
+.image-pokemon {
+    width: 80%;
+    height: 70%;
+}
+
+.abilities-description-button-container {
+    /* background-color: aqua; */
+    width: 40%;
+}
+
+.abilities-pokemon {
+    /* background-color: green; */
+    margin-top: 40%;
+    padding-left: 15%;
+}
+
+.description-pokemon {
+    /* background-color: blue; */
+    width: 85%;
+    margin-top: 10%;
+    padding-left: 15%;
+    padding-top: 5%;
+    border-top: 1px solid black;
+}
+
+.abilities-pokemon>h3 {
+    margin-bottom: 5%;
+}
+
+.description-pokemon>h3 {
+    margin-bottom: 5%;
+}
+
+.button-popUp-close-container {
+    /* background-color: red; */
+    width: 100%;
+    height: 10%;
+    display: flex;
+    justify-content: end;
+    align-items: flex-start;
+}
+
+.button-popUp-close {
+    border: 1px solid black;
+    width: 15%;
+    border-radius: 5px;
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5px;
+    margin-right: 5px;
+}
+
+.button-popUp-close:hover {
+    background-color: red;
+    box-shadow: 5px 2px 20px 2px red;
+    color: white;
+    cursor: pointer;
+}
+
+.image-pokemon:hover {
+    box-shadow: 5px 2px 20px 2px rgba(0, 0, 0, 0.63);
+    cursor: pointer;
+    border-radius: 10px;
+}

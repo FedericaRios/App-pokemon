@@ -1,24 +1,24 @@
 import React, { useEffect, useState } from 'react';
 import CardItem from '../cardItem'
+import PopUp from '../../components/popUp';
 import style from './styles.css';
 
-// const API_10_pokemon = 'https://pokeapi.co/api/v2/pokemon?limit=10&offset=0';
-// const API_id = 'https://pokeapi.co/api/v2/pokemon/1';
-
 const Body = ({
-    offset
+    offset,
+    pokemonFinded,
+    showListPokemons,
+    setShowListPokemons
 }) => {
 
-    const [pokemonsAndNext, setPokemonsAndNext] = useState({});
     const [pokemons, setPokemons] = useState([]);
-
+    const [popUp, setPopUp] = useState(false)
+    const [pokemonPopUp, setPokemonPopUp] = useState({});
 
     const fetchPokemonsAndNext = async () => {
         try {
             let res_api = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=10&offset=${offset}`);
             res_api = await res_api.json();
             console.log(res_api)
-            setPokemonsAndNext(res_api);
             getAllInfoPokemons(res_api.results)
 
         } catch (error) {
@@ -47,18 +47,50 @@ const Body = ({
 
     return (
         <div className="body-container">
-            <div className="cardItem-container">
+            {
+                !showListPokemons && <div className="button-container">
+                    <button onClick={() => setShowListPokemons(true)} >{'< Back to pokemon list'}</button>
+                </div>
+            }
+            <div className={showListPokemons ? "cardItem-container" : "oneCardItem-container"}>
                 {
-                    pokemons.map((item) => {
+                    showListPokemons && pokemons.map((item) => {
                         return (
                             < CardItem
-                                name={item.forms[0].name}
+                                name={item.name}
                                 image={item.sprites.other.dream_world.front_default}
+                                setPopUp={setPopUp}
+                                setPokemonPopUp={setPokemonPopUp}
+                                pokemon={item}
                             />
                         )
                     })
                 }
+                <div className="oneCardItem">
+                    {
+                        pokemonFinded.name && !showListPokemons && < CardItem
+                            name={pokemonFinded.name}
+                            image={pokemonFinded.sprites.other.dream_world.front_default}
+                            setPopUp={setPopUp}
+                            setPokemonPopUp={setPokemonPopUp}
+                            pokemon={pokemonFinded}
+                        />
+                    }
+
+                </div>
+
+                <div>
+                    {popUp && pokemonPopUp.name && <PopUp
+                        popUp={popUp}
+                        setPopUp={setPopUp}
+                        pokemonPopUp={pokemonPopUp}
+                    >
+                    </PopUp>
+                    }
+                </div>
+
             </div>
+
         </div >
     )
 }

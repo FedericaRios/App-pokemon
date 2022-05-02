@@ -4,13 +4,29 @@ import Header from '../../components/header';
 import Body from '../../components/body';
 import Footer from '../../components/footer';
 
+
 const Home = () => {
     const [offset, setOffset] = useState(0);
+    const [pokemonFinded, setPokemonFinded] = useState({});
+    const [showListPokemons, setShowListPokemons] = useState(true);
+
     return (
         <div className="home-container">
-            <Header />
-            <Body offset={offset} />
-            <Footer offset={offset} setOffset={setOffset} />
+            <Header
+                setPokemonFinded={setPokemonFinded}
+                setShowListPokemons={setShowListPokemons}
+            />
+            <Body
+                offset={offset}
+                pokemonFinded={pokemonFinded}
+                showListPokemons={showListPokemons}
+                setShowListPokemons={setShowListPokemons}
+            />
+            <Footer
+                offset={offset}
+                setOffset={setOffset}
+                showListPokemons={showListPokemons}
+            />
         </div>
     )
 }

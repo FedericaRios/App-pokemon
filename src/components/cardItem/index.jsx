@@ -3,11 +3,23 @@ import style from './styles.css';
 
 const CardItem = ({
     name,
-    image
+    image,
+    setPopUp,
+    setPokemonPopUp,
+    pokemon,
 }) => {
 
+    const onClickPopUp = () => {
+        setPokemonPopUp(pokemon)
+        setPopUp(true)
+    }
+
     return (
-        <div className="item-container">
+
+        <div
+            className="card-container"
+            onClick={onClickPopUp}
+        >
             <div className="name-container">
                 {name}
             </div>

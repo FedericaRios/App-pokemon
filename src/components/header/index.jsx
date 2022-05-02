@@ -2,21 +2,30 @@ import React from 'react';
 import { useState } from 'react';
 import style from './styles.css';
 
+const API_pokemon = 'https://pokeapi.co/api/v2/pokemon/'
 
-const Header = () => {
+const Header = ({
+    setPokemonFinded,
+    setShowListPokemons
+}) => {
 
 
 
-    const [pokemon, setPokemon] = useState('');
+    const [pokemonForSearch, setPokemonForSearch] = useState('');
 
     const handleInputValue = (input) => {
-        const inputIngresado = input.target.value;
-        setPokemon(inputIngresado);
+        const inputValue = input.target.value.toLowerCase();
+        setPokemonForSearch(inputValue);
     }
 
-    const buttonCallAPI = () => {
-
+    const searchPokemon = async () => {
+        let res_api = await fetch(API_pokemon + pokemonForSearch)
+        res_api = await res_api.json();
+        setPokemonFinded(res_api)
+        setShowListPokemons(false)
+        console.log(res_api, 'hi')
     }
+
 
     return (
         <div className="header-container">
@@ -26,7 +35,7 @@ const Header = () => {
                 placeholder='Choose your pokemon..' />
             <button
                 className="header-button"
-                onClick={buttonCallAPI}>Search</button>
+                onClick={searchPokemon}>Search</button>
         </div>
     )
 }
