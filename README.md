@@ -8,8 +8,10 @@
 4) npm start
 
 ## Tecnologías utilizadas para el desarrollo de la aplicación:
-
-React, Css, Js, y Html.
+● React <br/>
+● Html <br/>
+● Js <br/>
+● Css
 
 
 
