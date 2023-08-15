@@ -1,4 +1,4 @@
-# App Pokemon
+# Pokemon App
 ### ➥ Permite conocer información sobre cualquier Pokemon de dos maneras, la primera es desde el listado principal de todos los pokemon y la segunda desde el buscador si desea ver alguno en particular.
 
 ## Explicación de cómo hacer funcionar Front-end:
