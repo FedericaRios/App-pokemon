@@ -8,10 +8,5 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 25% 50%;
+  overflow: hidden;
 }
-
-/* @media (max-width: 530px) {
-  body {
-    height: 130vh;
-  }
-} */
