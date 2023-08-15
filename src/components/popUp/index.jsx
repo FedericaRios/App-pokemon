@@ -1,11 +1,8 @@
 import React from 'react';
 import { FiX } from "react-icons/fi";
-import style from './styles.css';
+import './styles.css';
 
-const PopUp = ({
-    setPopUp,
-    pokemonPopUp
-}) => {
+const PopUp = ({ setPopUp, pokemonPopUp }) => {
 
     const pokemonName = pokemonPopUp.name;
     const pokemonImage = pokemonPopUp.sprites.other.dream_world.front_default;
@@ -22,11 +19,16 @@ const PopUp = ({
                     <img
                         src={pokemonImage}
                         className="image-pokemon"
+                        alt="pokemon"
                     />
                 </div>
                 <div className="abilities-description-button-container">
                     <div className="button-popUp-close-container">
-                        <button className="button-popUp-close" onClick={() => setPopUp(false)}><FiX /></button>
+                        <button
+                            className="button-popUp-close"
+                            onClick={() => setPopUp(false)}>
+                            <FiX />
+                        </button>
                     </div>
                     <div className="abilities-pokemon">
                         <h3>Abilities</h3>
@@ -44,9 +46,8 @@ const PopUp = ({
                     </div>
                 </div>
             </div>
-        </div >
+        </div>
     )
-
-}
+};
 
 export default PopUp;

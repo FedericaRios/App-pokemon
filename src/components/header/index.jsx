@@ -1,15 +1,10 @@
 import React from 'react';
 import { useState } from 'react';
-import style from './styles.css';
+import './styles.css';
 
 const API_pokemon = 'https://pokeapi.co/api/v2/pokemon/'
 
-const Header = ({
-    setPokemonFinded,
-    setShowListPokemons
-}) => {
-
-
+const Header = ({ setPokemonFinded, setShowListPokemons }) => {
 
     const [pokemonForSearch, setPokemonForSearch] = useState('');
 
@@ -25,7 +20,6 @@ const Header = ({
         setShowListPokemons(false)
     }
 
-
     return (
         <div className="header-container">
             <input
@@ -37,6 +31,6 @@ const Header = ({
                 onClick={searchPokemon}>Search</button>
         </div>
     )
-}
+};
 
 export default Header;

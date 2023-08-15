@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Header from '../../components/header';
 import Body from '../../components/body';
 import Footer from '../../components/footer';
-import styles from './styles.css';
+import './styles.css';
 
 const Home = () => {
     const [offset, setOffset] = useState(0);
@@ -28,6 +28,6 @@ const Home = () => {
             />
         </div>
     )
-}
+};
 
 export default Home;

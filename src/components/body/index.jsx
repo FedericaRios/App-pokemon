@@ -2,26 +2,44 @@ import React, { useEffect, useState } from 'react';
 import CardItem from '../cardItem'
 import PopUp from '../../components/popUp';
 import { FiArrowLeft } from "react-icons/fi";
-import style from './styles.css';
+import './styles.css';
 
-
-const Body = ({
-    offset,
-    pokemonFinded,
-    showListPokemons,
-    setShowListPokemons
-}) => {
+const Body = ({ offset, pokemonFinded, showListPokemons, setShowListPokemons }) => {
 
     const [pokemons, setPokemons] = useState([]);
     const [popUp, setPopUp] = useState(false)
     const [pokemonPopUp, setPokemonPopUp] = useState({});
+    const [limit, setLimit] = useState(0);
+
+    useEffect(() => {
+        const handleResize = () => {
+
+            if (window.innerWidth < 530) {
+                setLimit(6)
+            }
+            if (window.innerWidth > 530) {
+                setLimit(10)
+            }
+        };
+        handleResize();
+        window.addEventListener('resize', handleResize);
+
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, []);
+
+    useEffect(() => {
+        if (limit !== 0) {
+            fetchPokemonsAndNext();
+        }
+    }, [offset, limit])
 
     const fetchPokemonsAndNext = async () => {
         try {
-            let res_api = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=10&offset=${offset}`);
+            let res_api = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=${limit}&offset=${offset}`);
             res_api = await res_api.json();
             getAllInfoPokemons(res_api.results)
-
         } catch (error) {
             console.log(error)
         }
@@ -40,23 +58,21 @@ const Body = ({
         setPokemons(arrayInfoPokemon);
     }
 
-    useEffect(() => {
-        fetchPokemonsAndNext();
-    }, [offset])
-
-
     return (
         <div className="body-container">
             {
-                !showListPokemons && <div className="button-container">
-                    <button onClick={() => setShowListPokemons(true)}><FiArrowLeft /> Back</button>
+                !showListPokemons &&
+                <div className="button-container">
+                    <button onClick={() => setShowListPokemons(true)}><FiArrowLeft style={{ marginRight: '5px' }} />
+                        Back
+                    </button>
                 </div>
             }
             <div className={showListPokemons ? "cardItem-container" : "oneCardItem-container"}>
                 {
                     showListPokemons && pokemons.map((item) => {
                         return (
-                            < CardItem
+                            <CardItem
                                 name={item.name}
                                 image={item.sprites.other.dream_world.front_default}
                                 setPopUp={setPopUp}
@@ -68,7 +84,8 @@ const Body = ({
                 }
                 <div className="oneCardItem">
                     {
-                        pokemonFinded.name && !showListPokemons && < CardItem
+                        pokemonFinded.name && !showListPokemons &&
+                        <CardItem
                             name={pokemonFinded.name}
                             image={pokemonFinded.sprites.other.dream_world.front_default}
                             setPopUp={setPopUp}
@@ -76,34 +93,20 @@ const Body = ({
                             pokemon={pokemonFinded}
                         />
                     }
-
                 </div>
-
                 <div>
-                    {popUp && pokemonPopUp.name && <PopUp
-                        popUp={popUp}
-                        setPopUp={setPopUp}
-                        pokemonPopUp={pokemonPopUp}
-                    >
-                    </PopUp>
+                    {popUp && pokemonPopUp.name &&
+                        <PopUp
+                            popUp={popUp}
+                            setPopUp={setPopUp}
+                            pokemonPopUp={pokemonPopUp}
+                        >
+                        </PopUp>
                     }
                 </div>
-
             </div>
-
-        </div >
+        </div>
     )
-}
+};
 
 export default Body;
-
-
-
-
-// const getRandom = (min, max) => {
-    //     return Math.floor(Math.random() * (max - min)) + min;
-    // }
-
-    // const random = getRandom(1, 11)
-    // fetchData(random);
-

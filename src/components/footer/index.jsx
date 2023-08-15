@@ -1,12 +1,8 @@
 import React from 'react';
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
-import style from './styles.css';
+import './styles.css';
 
-const Footer = ({
-    setOffset,
-    offset,
-    showListPokemons
-}) => {
+const Footer = ({ setOffset, offset, showListPokemons }) => {
 
     const sumarOffset = () => {
         setOffset(offset + 10)
@@ -16,11 +12,11 @@ const Footer = ({
         setOffset(offset - 10)
     }
 
-
     return (
         <div className="footer-container">
             {
-                showListPokemons && <div className="buttons-container">
+                showListPokemons &&
+                <div className="buttons-container">
                     <button
                         className="buttons"
                         onClick={restarOffset}><FiChevronLeft /></button>
@@ -29,9 +25,8 @@ const Footer = ({
                         onClick={sumarOffset}><FiChevronRight /></button>
                 </div>
             }
-
-        </div >
+        </div>
     )
-}
+};
 
 export default Footer;

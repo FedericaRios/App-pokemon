@@ -25,11 +25,15 @@
 }
 
 .presentation-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #ffcc00;
+    color: #ffffff;
+    border: none;
     border-radius: 5px;
-    margin-top: 30px;
-    border: 1px solid black;
-    padding: 5px;
+    font-size: 16px;
     cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
 }
 
 .presentation-button:hover {
@@ -52,10 +56,6 @@
 
     .presentation-button-container {
         width: 30%;
-        height: 10%;
-    }
-
-    .presentation-button {
-        width: 100%;
+        height: 5%;
     }
 }
