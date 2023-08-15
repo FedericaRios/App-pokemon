@@ -20,7 +20,7 @@ Consumo de Api.
 
 Deploy: Github pages.
 
-Link: [https://federicarios.github.io/proyecto-clima/](https://federicarios.github.io/App-pokemon/)
+Link: https://federicarios.github.io/App-pokemon/
 
 
 ● Desktop:<br/>
