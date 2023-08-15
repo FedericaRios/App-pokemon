@@ -1,6 +1,6 @@
 {
-  "homepage": "https://FedericaRios.github.io/challenge-pokemon",
-  "name": "challenge-pokemon",
+  "homepage": "https://FedericaRios.github.io/App-pokemon",
+  "name": "app-pokemon",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
